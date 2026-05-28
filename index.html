@@ -397,13 +397,18 @@ function typeText(){
 typeText();
 
 /* Countdown */
-const birthday = new Date("2026-05-29T00:00:00+08:00").getTime();
+const birthday = new Date("2026-05-30T00:00:00+08:00").getTime();
 
 setInterval(()=>{
 
     const now = new Date().getTime();
 
-    const gap = birthday - now;
+    let gap = birthday - now;
+
+    // If birthday time is reached or passed
+    if(gap <= 0){
+        gap = 0;
+    }
 
     const days = Math.floor(gap / (1000*60*60*24));
     const hours = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
