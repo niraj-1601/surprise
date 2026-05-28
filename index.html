@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday Champ 🎂</title>
+<title>Happy Birthday 🎂</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -21,15 +22,15 @@ html{
 }
 
 body{
-    overflow: hidden;
+    overflow:hidden;
     background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
     background-size:400% 400%;
-    animation:bgMove 10s ease infinite;
+    animation:bgMove 12s ease infinite;
     color:white;
     overflow-x:hidden;
 }
 
-/* Animated background */
+/* Background Animation */
 @keyframes bgMove{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
@@ -45,117 +46,142 @@ header{
     flex-direction:column;
     text-align:center;
     padding:20px;
+    position:relative;
 }
 
 header h1{
-    font-size:3.2rem;
+    font-size:3.5rem;
     text-shadow:0 0 20px rgba(255,255,255,0.8);
+    animation:fadeUp 1.5s ease;
+}
+
+.typing{
+    margin-top:18px;
+    font-size:1.2rem;
+    max-width:750px;
+    line-height:1.8;
+    min-height:60px;
     animation:fadeUp 2s ease;
 }
 
-header p{
-    margin-top:15px;
-    font-size:1.2rem;
-    max-width:700px;
-    animation:fadeUp 2.5s ease;
-}
-
+/* Button */
 .btn{
-    margin-top:30px;
-    padding:14px 28px;
+    margin-top:35px;
+    padding:15px 32px;
     border:none;
     border-radius:50px;
-    font-size:1rem;
-    cursor:pointer;
-    color:#ff4d7a;
     background:white;
-    transition:.3s;
+    color:#ff4d7a;
+    font-size:1rem;
     font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
 }
 
 .btn:hover{
     transform:scale(1.08);
 }
 
+/* Countdown */
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:35px;
+}
+
+.box{
+    background:rgba(255,255,255,0.15);
+    padding:22px;
+    border-radius:20px;
+    min-width:110px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.box:hover{
+    transform:translateY(-5px);
+}
+
+.box h3{
+    font-size:2.4rem;
+}
+
+.box p{
+    margin-top:5px;
+}
+
 /* Sections */
 section{
-    padding:80px 20px;
+    padding:90px 20px;
     text-align:center;
 }
 
 h2{
-    font-size:2.3rem;
-    margin-bottom:25px;
+    font-size:2.4rem;
+    margin-bottom:30px;
 }
 
 /* Gallery */
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    max-width:1100px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+    max-width:1150px;
     margin:auto;
 }
 
 .gallery img{
     width:100%;
-    height:300px;
+    height:340px;
     object-fit:cover;
-    border-radius:22px;
-    box-shadow:0 12px 25px rgba(0,0,0,.25);
+    border-radius:24px;
     transition:.4s;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
 
 .gallery img:hover{
     transform:translateY(-10px) scale(1.03);
 }
 
-/* Card */
+/* Cards */
 .card{
-    max-width:800px;
+    max-width:850px;
     margin:auto;
     background:rgba(255,255,255,0.12);
-    padding:35px;
-    border-radius:25px;
-    backdrop-filter:blur(10px);
-    line-height:1.9;
-    font-size:1.15rem;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    padding:40px;
+    border-radius:28px;
+    backdrop-filter:blur(12px);
+    line-height:2;
+    font-size:1.1rem;
+    box-shadow:0 10px 35px rgba(0,0,0,.18);
 }
 
-/* Countdown */
-.countdown{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:30px;
-}
-
-.box{
-    background:rgba(255,255,255,0.15);
-    padding:20px;
-    border-radius:18px;
-    min-width:100px;
-}
-
-.box h3{
-    font-size:2rem;
-}
-
+/* Footer */
 footer{
     text-align:center;
-    padding:30px;
+    padding:35px;
     font-size:1rem;
 }
 
-/* Floating hearts */
+/* Floating Hearts */
 .heart{
     position:fixed;
     bottom:-20px;
     animation:float 7s linear infinite;
-    font-size:22px;
     opacity:.9;
+    pointer-events:none;
+}
+
+.sparkle{
+    position:fixed;
+    top:-10px;
+    animation:sparkleFloat 6s linear infinite;
+    pointer-events:none;
+    opacity:.8;
 }
 
 @keyframes float{
@@ -169,6 +195,21 @@ footer{
     }
 }
 
+@keyframes sparkleFloat{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+/* Animation */
 @keyframes fadeUp{
     from{
         opacity:0;
@@ -180,88 +221,188 @@ footer{
     }
 }
 
+/* Mobile */
 @media(max-width:600px){
+
 header h1{
-    font-size:2.3rem;
+    font-size:2.5rem;
 }
+
+.typing{
+    font-size:1rem;
+}
+
 h2{
+    font-size:1.9rem;
+}
+
+.box{
+    min-width:90px;
+    padding:18px;
+}
+
+.box h3{
     font-size:1.8rem;
 }
+
+.gallery img{
+    height:280px;
 }
+
+.card{
+    padding:28px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Happy Birthday Champ 🎂💖</h1>
-    <p>You are not my sister by blood, but you are never less than that. </p>
-    <button class="btn" onclick="openSurprise()">Tap to reveal something special</button>
+
+    <h1>Happy Birthday Mrs.Malkar 🎂💖</h1>
+
+    <div class="typing" id="typingText"></div>
+
+    <!-- Countdown -->
+    <div class="countdown">
+
+        <div class="box">
+            <h3 id="days">0</h3>
+            <p>Days</p>
+        </div>
+
+        <div class="box">
+            <h3 id="hours">0</h3>
+            <p>Hours</p>
+        </div>
+
+        <div class="box">
+            <h3 id="mins">0</h3>
+            <p>Minutes</p>
+        </div>
+
+        <div class="box">
+            <h3 id="secs">0</h3>
+            <p>Seconds</p>
+        </div>
+
+    </div>
+
+    <button class="btn" onclick="openSurprise()">
+        Tap to reveal something special ✨
+    </button>
+
 </header>
 
+<!-- Gallery -->
 <section id="gallery">
+
     <h2>Your Beautiful Memories 📸</h2>
+
     <div class="gallery">
+
         <img src="photo1.jpg.jpeg">
         <img src="photo2.jpg.jpeg">
         <img src="photo3.jpg.jpeg">
         <img src="photo4.jpg.jpeg">
+
     </div>
+
 </section>
 
+<!-- Message -->
 <section>
+
     <h2>Special Message 💌</h2>
+
     <div class="card">
-        Dear Champ,<br><br>
 
-        Thank you for being part of every laugh, every fight, every memory, and every important moment of life.  
-        You make life brighter just by being in it.  
+        Dear Didi,<br><br>
 
-        I pray happiness always finds you, success always follows you, and your smile never fades. 💖<br><br>
+        You are not just a teacher for me, you are someone who always stood beside me like a mentor, a guide, and honestly like an elder sister and mother figure too.
 
-        Happy Birthday Champ 🎂✨
+        Thank you for listening to all my problems patiently and always giving me the right solutions when I was confused or low.
+
+        Your support, motivation, and care helped me more than you probably know.
+        <br><br>
+
+        No matter what situation I was in, you always encouraged me to stay strong and believe in myself.
+
+        I feel really lucky to have a teacher like you in my life.
+
+        Your kindness and understanding will always stay close to my heart.
+        <br><br>
+
+        May you always stay happy, healthy, and successful because you truly deserve all the happiness in the world.
+
+        Wishing you a very beautiful birthday and an amazing year ahead ✨😊
+
     </div>
+
 </section>
 
+<!-- Amazing -->
 <section>
+
     <h2>Why You're Amazing 🌟</h2>
+
     <div class="card">
+
         ✔ Always caring ❤️ <br>
         ✔ Strong personality 😎 <br>
         ✔ Cute but dangerous when angry 😆 <br>
-        ✔ Makes home feel alive 🏠 <br>
-        ✔ World's best Champ 💖
-    </div>
-</section>
+        ✔ World's best Teacher 💖
 
-<section>
-    <h2>Birthday Countdown ⏰</h2>
-    <div class="countdown">
-        <div class="box"><h3 id="days">0</h3><p>Days</p></div>
-        <div class="box"><h3 id="hours">0</h3><p>Hours</p></div>
-        <div class="box"><h3 id="mins">0</h3><p>Minutes</p></div>
-        <div class="box"><h3 id="secs">0</h3><p>Seconds</p></div>
     </div>
+
 </section>
 
 <footer>
-    Made with Love by Your Brother 💙
+    Made with Love by Your Former Student. 💙
 </footer>
 
 <script>
 
-    function openSurprise(){
+/* Reveal Website */
+function openSurprise(){
+
     document.body.style.overflowY = "auto";
+
     document.getElementById("gallery").scrollIntoView({
         behavior:"smooth"
     });
+
 }
 
-/* Change birthday date here */
-const birthday = new Date("May 30, 2026 00:00:00").getTime();
+/* Typing Effect */
+const text = "“More than a teacher, you were a guide, a mentor, and a second mother in my life.” ❤️";
+
+let index = 0;
+
+function typeText(){
+
+    if(index < text.length){
+
+        document.getElementById("typingText").innerHTML += text.charAt(index);
+
+        index++;
+
+        setTimeout(typeText,45);
+    }
+}
+
+typeText();
+
+/* Countdown */
+const birthday = new Date("May 29, 2026 00:00:00").getTime();
 
 setInterval(()=>{
+
     const now = new Date().getTime();
+
     const gap = birthday - now;
 
     const days = Math.floor(gap / (1000*60*60*24));
@@ -273,22 +414,50 @@ setInterval(()=>{
     document.getElementById("hours").innerHTML = hours;
     document.getElementById("mins").innerHTML = mins;
     document.getElementById("secs").innerHTML = secs;
+
 },1000);
 
-/* Floating hearts */
+/* Floating Hearts */
 setInterval(()=>{
+
     let heart = document.createElement("div");
+
     heart.classList.add("heart");
+
     heart.innerHTML = "💖";
+
     heart.style.left = Math.random()*100 + "vw";
+
     heart.style.fontSize = (Math.random()*20 + 15)+"px";
+
     document.body.appendChild(heart);
 
     setTimeout(()=>{
         heart.remove();
     },7000);
 
-},350);
+},300);
+
+/* Sparkles */
+setInterval(()=>{
+
+    let sparkle = document.createElement("div");
+
+    sparkle.classList.add("sparkle");
+
+    sparkle.innerHTML = "✨";
+
+    sparkle.style.left = Math.random()*100 + "vw";
+
+    sparkle.style.fontSize = (Math.random()*15 + 10)+"px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(()=>{
+        sparkle.remove();
+    },6000);
+
+},500);
 
 </script>
 
